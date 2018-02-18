@@ -30,8 +30,8 @@ defmodule Excountries.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [
-      {:httpoison, "~> 0.7.2"},
-      {:poison, "~> 1.5"}
+      {:httpoison, "~> 1.0.0"},
+      {:poison, "~> 3.1.0"}
     ]
   end
 
@@ -50,6 +50,3 @@ defmodule Excountries.Mixfile do
     ]
   end
 end
-
-
-

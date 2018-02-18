@@ -24,7 +24,7 @@ defmodule Excountries.Radar do
   ```
   """
   def all(client \\ Excountries.API) do
-    client.call("/all") |> Poison.decode!(as: [Excountries.Country])
+    client.call("/all") |> Poison.decode!(as: [%Excountries.Country{}])
   end
 
   @doc """
@@ -36,9 +36,9 @@ defmodule Excountries.Radar do
   """
   def by_full_name(name, client \\ Excountries.API) do
     name = String.downcase name
-    client.call("/name/#{name}?fullText=true") |> Poison.decode!(as: [Excountries.Country]) |> List.first
+    client.call("/name/#{name}?fullText=true") |> Poison.decode!(as: [%Excountries.Country{}]) |> List.first
   end
-  
+
   @doc """
   Searches for a country by a substring of it's name or abbreviation:
 
@@ -48,7 +48,7 @@ defmodule Excountries.Radar do
   """
   def by_name(name, client \\ Excountries.API) do
     name = String.downcase name
-    client.call("/name/#{name}") |> Poison.decode!(as: [Excountries.Country])
+    client.call("/name/#{name}") |> Poison.decode!(as: [%Excountries.Country{}])
   end
 
   @doc """
@@ -59,8 +59,8 @@ defmodule Excountries.Radar do
   ```
   """
   def by_language(lang, client \\ Excountries.API) do
-    Excountries.LanguageValidator.validate!(lang) 
-    client.call("/lang/#{lang}") |> Poison.decode!(as: [Excountries.Country])
+    Excountries.LanguageValidator.validate!(lang)
+    client.call("/lang/#{lang}") |> Poison.decode!(as: [%Excountries.Country{}])
   end
 
   @doc """
@@ -71,7 +71,7 @@ defmodule Excountries.Radar do
   ```
   """
   def by_currency(currency, client \\ Excountries.API) do
-    client.call("/currency/#{currency}") |> Poison.decode!(as: [Excountries.Country])
+    client.call("/currency/#{currency}") |> Poison.decode!(as: [%Excountries.Country{}])
   end
 
   @doc """
@@ -82,7 +82,7 @@ defmodule Excountries.Radar do
   ```
   """
   def by_capital(capital, client \\ Excountries.API) do
-    client.call("/capital/#{capital}") |> Poison.decode!(as: [Excountries.Country]) |> List.first
+    client.call("/capital/#{capital}") |> Poison.decode!(as: [%Excountries.Country{}]) |> List.first
   end
 
   @doc """
@@ -93,7 +93,7 @@ defmodule Excountries.Radar do
   ```
   """
   def by_calling_code(code, client \\ Excountries.API) do
-    client.call("/calling_code/#{code}") |> Poison.decode!(as: [Excountries.Country])
+    client.call("/calling_code/#{code}") |> Poison.decode!(as: [%Excountries.Country{}])
   end
 
   @doc """
@@ -104,7 +104,7 @@ defmodule Excountries.Radar do
   ```
   """
   def by_region(region, client \\ Excountries.API) do
-    client.call("/region/#{region}") |> Poison.decode!(as: [Excountries.Country])
+    client.call("/region/#{region}") |> Poison.decode!(as: [%Excountries.Country{}])
   end
 
   @doc """
@@ -115,7 +115,7 @@ defmodule Excountries.Radar do
   ```
   """
   def by_subregion(subregion, client \\ Excountries.API) do
-    client.call("/subregion/#{subregion}") |> Poison.decode!(as: [Excountries.Country])
+    client.call("/subregion/#{subregion}") |> Poison.decode!(as: [%Excountries.Country{}])
   end
 
   @doc """
@@ -126,6 +126,6 @@ defmodule Excountries.Radar do
   ```
   """
   def by_country_code(code, client \\ Excountries.API) do
-    client.call("/alpha/#{code}") |> Poison.decode!(as: [Excountries.Country])
+    client.call("/alpha/#{code}") |> Poison.decode!(as: [%Excountries.Country{}])
   end
 end
