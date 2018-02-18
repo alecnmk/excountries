@@ -65,7 +65,8 @@ defmodule Excountries.RadarTest do
   test ".all returns a list of Country structs" do
     countries = Excountries.Radar.all(ClientMock)
     country = List.first countries
-    assert country.name, "Republic Of Macedonia" 
+    assert country.name, "Republic Of Macedonia"
+    assert country.alpha2Code, "MK"
     assert country.capital, "Skopje"
     assert country.region, "Europe"
     assert country.relevance, "0"
@@ -73,27 +74,27 @@ defmodule Excountries.RadarTest do
 
   test ".by_full_name returns the matching Country" do
     country = Excountries.Radar.by_full_name("Republic Of Macedonia", ClientMock)
-    assert country.name, "Republic Of Macedonia" 
-    assert country.capital, "Skopje" 
+    assert country.name, "Republic Of Macedonia"
+    assert country.capital, "Skopje"
   end
 
   test ".by_language returns the countries where the language is spoken" do
     countries = Excountries.Radar.by_language("mk", ClientMock)
     country = List.first countries
-    assert country.name, "Republic Of Macedonia" 
+    assert country.name, "Republic Of Macedonia"
     assert List.first(country.languages), "mk"
   end
 
   test ".by_currency returns the countries where the currency is used" do
     countries = Excountries.Radar.by_currency("MKD", ClientMock)
     country = List.first countries
-    assert country.name, "Republic Of Macedonia" 
+    assert country.name, "Republic Of Macedonia"
     assert List.first(country.currencies), "MKD"
   end
 
   test ".by_capital returns the country whose capital matches the name" do
     country = Excountries.Radar.by_capital("Skopje", ClientMock)
-    assert country.name, "Republic Of Macedonia" 
+    assert country.name, "Republic Of Macedonia"
     assert country.capital, "Skopje"
   end
 end
